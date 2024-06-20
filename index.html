@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <div class="container">
+      <img class="logo" src="./images/logo.svg" alt="tip calculator logo" />
+
+      <main class="cal">
+        <div class="cal-box">
+          <div class="cal-box__item cal__bill">
+            <div class="cal__title">Bill</div>
+            <div class="cal__input-container">
+              <label class="cal__label" for="bill">
+                <img src="./images/icon-dollar.svg" alt="dollor icon" />
+              </label>
+              <input class="cal__input cal__input--bill" type="text" id="bill" placeholder="0" autocomplete="off" />
+            </div>
+          </div>
+
+          <div class="cal-box__item cal__tip">
+            <div class="cal__title">Select Tip %</div>
+            <div class="cal__select-container">
+              <button class="cal__select-item cal__select-item--5">5%</button>
+              <button class="cal__select-item cal__select-item--10">10%</button>
+              <button class="cal__select-item cal__select-item--15">15%</button>
+              <button class="cal__select-item cal__select-item--25">25%</button>
+              <button class="cal__select-item cal__select-item--50">50%</button>
+              <input class="cal__select-item--custom" placeholder="Custom" type="text" />
+            </div>
+          </div>
+
+          <div class="cal-box__item cal__number">
+            <div class="cal__title">Number of People <span class="cal__error hidden">Can't be zero</span></div>
+            <div class="cal__input-container">
+              <label class="cal__label" for="number">
+                <img src="./images/icon-person.svg" alt="person icon" />
+              </label>
+              <input class="cal__input cal__input--number" type="text" id="number" placeholder="0" autocomplete="off" />
+            </div>
+          </div>
+        </div>
+        <div class="display-box">
+          <div class="display__item">
+            <div class="display__title">Tip Amount</div>
+            <div class="display__unit">/ person</div>
+            <div class="display__amount">$<span class="display__amount--tip">0.00</span></div>
+          </div>
+
+          <div class="display__item">
+            <div class="display__title">Total</div>
+            <div class="display__unit">/ person</div>
+            <div class="display__amount">$<span class="display__amount--total">0.00</span></div>
+          </div>
+
+          <button class="display__reset">Reset</button>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

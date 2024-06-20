@@ -1,0 +1,265 @@
+:root {
+  --color-white: hsl(0, 0%, 100%);
+  --color-cyan: hsl(172, 67%, 45%);
+  --color-cyan-grayish: hsl(184, 14%, 56%);
+  --color-cyan-dark: hsl(186, 14%, 43%);
+  --color-cyan-dark-very: hsl(183, 100%, 15%);
+  --color-cyan-light: hsl(185, 41%, 84%);
+  --color-cyan-light-very: hsl(189, 41%, 97%);
+
+  --fs-input: 2.4rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  height: 100vh;
+  background-color: var(--color-cyan-light);
+  align-content: center;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 100rem;
+}
+
+/* logo */
+.logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+
+/* cal */
+.cal {
+  background-color: var(--color-white);
+  padding: 4rem;
+  border-radius: 20px;
+
+  display: flex;
+  gap: 4rem;
+
+  > * {
+    flex-basis: 50%;
+  }
+}
+
+.cal-box {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cal-box__item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cal__title {
+  font-size: 1.8rem;
+  color: var(--color-cyan-dark);
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.cal__input-container {
+  position: relative;
+}
+
+.cal__label {
+  z-index: 1;
+
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
+.cal__error {
+  color: red;
+}
+
+.cal__input {
+  text-align: right;
+  font-size: var(--fs-input);
+  color: var(--color-cyan-dark-very);
+  font-family: inherit;
+  background-color: var(--color-cyan-light-very);
+  width: 100%;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 2px;
+  appearance: none;
+  caret-color: var(--color-cyan);
+  cursor: pointer;
+
+  &::placeholder {
+    color: var(--color-cyan-grayish);
+  }
+}
+
+.cal__input:focus {
+  outline: 2px solid var(--color-cyan);
+}
+
+.cal__input--error,
+.cal__input--error:focus {
+  outline: 2px solid red;
+}
+
+.cal__select-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.cal__select-item {
+  font-family: inherit;
+  font-size: 2rem;
+  color: var(--color-cyan-light-very);
+  background-color: var(--color-cyan-dark-very);
+  border: none;
+  border-radius: 5px;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.cal__select-item:is(:hover, :active, :focus) {
+  color: var(--color-cyan-dark-very);
+  background-color: var(--color-cyan);
+}
+
+.cal__select-item--custom {
+  font-size: var(--fs-input);
+  color: var(--color-cyan-dark-very);
+  font-family: inherit;
+  background-color: var(--color-cyan-light-very);
+  border: none;
+  border-radius: 2px;
+  width: 100%;
+  text-align: center;
+  caret-color: var(--color-cyan);
+  appearance: none;
+  cursor: pointer;
+
+  &::placeholder {
+    color: var(--color-cyan-dark);
+  }
+}
+
+.cal__select-item--custom:focus {
+  /* text-align: right; */
+  outline: 2px solid var(--color-cyan);
+}
+
+.hidden {
+  display: none;
+}
+
+/* display */
+.display-box {
+  background-color: var(--color-cyan-dark-very);
+  padding: 4rem;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.display__item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 3rem);
+}
+
+.display__title {
+  font-size: 1.6rem;
+  color: var(--color-cyan-light-very);
+  letter-spacing: 0.5px;
+  grid-column: 1/2;
+  justify-self: start;
+  align-self: end;
+}
+
+.display__unit {
+  font-size: 1.2rem;
+  color: var(--color-cyan-grayish);
+  grid-row: 2/3;
+}
+
+.display__amount {
+  font-size: 4rem;
+  color: var(--color-cyan);
+  grid-column: 2/-1;
+  grid-row: 1/-1;
+  justify-self: end;
+  align-self: center;
+}
+
+.display__reset {
+  font-family: inherit;
+  font-size: 2.4rem;
+  color: var(--color-cyan-dark-very);
+  background-color: hsl(172, 67%, 25%);
+
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 5px;
+  margin-top: auto;
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+.display__reset:active {
+  background-color: hsl(172, 67%, 65%);
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 50%;
+  }
+  .container {
+    padding-top: 4rem;
+  }
+  .cal {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .logo {
+    margin-bottom: 2rem;
+  }
+
+  .cal__select-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
